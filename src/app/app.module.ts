@@ -1,17 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './comps/items/todo/todo.component';
-import { TodosComponent } from './comps/panels/todos/todos.component';
+import { TodosComponent } from './pages/todos/todos.component';
 import { PostComponent } from './comps/items/post/post.component';
 import { UserComponent } from './comps/items/user/user.component';
 import { CommentComponent } from './comps/items/comment/comment.component';
-import { UsersComponent } from './comps/panels/users/users.component';
-import { PostsComponent } from './comps/panels/posts/posts.component';
-import { CommentsComponent } from './comps/panels/comments/comments.component';
-import { UserOptionsComponent } from './comps/user-options/user-options.component';
+import { UsersComponent } from './pages/users/users.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { AlbumsComponent } from './pages/albums/albums.component';
+import { AlbumComponent } from './comps/items/album/album.component';
+import { PhotoComponent } from './comps/items/photo/photo.component';
+import { NaviComponent } from './comps/navi/navi.component';
+import { FilterComponent } from './comps/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +29,18 @@ import { UserOptionsComponent } from './comps/user-options/user-options.componen
     CommentComponent,
     UsersComponent,
     PostsComponent,
-    CommentsComponent,
-    UserOptionsComponent
+    LoginComponent,
+    HomepageComponent,
+    AlbumsComponent,
+    AlbumComponent,
+    PhotoComponent,
+    NaviComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule, 
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

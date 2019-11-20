@@ -1,0 +1,11 @@
+<p>users works!</p>
+
+
+<ul *ngIf="users">
+    <li *ngFor="let u of users">
+        {{ u.name }} - {{ u.username }}
+        <item-user [user]="u"></item-user>
+    </li>
+</ul>
+
+<!--{{svc.myData}}-->

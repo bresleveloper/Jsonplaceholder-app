@@ -1,0 +1,34 @@
+
+
+<ul class="sidenav">
+    <li>
+        <a (click)="locationSvc.changeLocation('homepage')" 
+            [ngClass]="locationSvc.CurrentLocation == 'homepage' ? 'active' : ''">
+            Home
+        </a>
+    </li>
+    <li>
+        <a  (click)="locationSvc.changeLocation('users')" 
+            [ngClass]="locationSvc.CurrentLocation == 'users' ? 'active' : ''">
+            Users
+        </a>
+    </li>
+    <li>
+        <a  (click)="locationSvc.changeLocation('posts')" 
+            [ngClass]="locationSvc.CurrentLocation == 'posts' ? 'active' : ''">
+            Posts
+        </a>
+    </li>
+    <li>
+        <a  (click)="locationSvc.changeLocation('albums')" 
+            [ngClass]="locationSvc.CurrentLocation == 'albums' ? 'active' : ''">
+            Albums
+        </a>
+    </li>
+    <li>
+        <a  (click)="locationSvc.changeLocation('todos')" 
+            [ngClass]="locationSvc.CurrentLocation == 'todos' ? 'active' : ''">
+            Todos
+        </a>
+    </li>
+  </ul>

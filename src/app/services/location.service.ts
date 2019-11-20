@@ -7,7 +7,15 @@ export class LocationService {
 
   constructor() { }
 
-  location:string = 'users'
+  pages = ['login','homepage','albums',
+  'posts','todos','users',]
+
+  CurrentLocation:string = 'login'
+
+  changeLocation(newLocation:string){
+    console.log('changeLocation', newLocation);
+    this.CurrentLocation = newLocation
+  }
 
   
 }

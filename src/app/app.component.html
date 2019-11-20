@@ -1,11 +1,13 @@
 
 
 
+<app-navi></app-navi>
 
 
 
-<panel-users *ngIf="location.location == 'users'"></panel-users>
-<app-user-options *ngIf="location.location == 'userOptions'"></app-user-options>
-
-<panel-todos *ngIf="location.location == 'todos'"></panel-todos>
-<panel-posts *ngIf="location.location == 'posts'"></panel-posts>
+<app-login *ngIf="locationSvc.CurrentLocation == 'login'"></app-login>
+<app-users *ngIf="locationSvc.CurrentLocation == 'users'"></app-users>
+<app-homepage *ngIf="locationSvc.CurrentLocation == 'homepage'"></app-homepage>
+<app-posts *ngIf="locationSvc.CurrentLocation == 'posts'"></app-posts>
+<app-todos *ngIf="locationSvc.CurrentLocation == 'todos'"></app-todos>
+<app-albums *ngIf="locationSvc.CurrentLocation == 'albums'"></app-albums>

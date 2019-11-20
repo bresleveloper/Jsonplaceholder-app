@@ -9,7 +9,7 @@ import { LocationService } from './services/location.service';
 export class AppComponent {
   title = 'jsonplaceholder';
 
-  constructor(public location:LocationService) {
+  constructor(public locationSvc:LocationService) {
       
   }
 }
