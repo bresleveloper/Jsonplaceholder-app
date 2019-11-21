@@ -27,4 +27,12 @@ export class PostService {
     return this.http.get<Post>(this.api+id)
   }
 
+  getLastPosts():Observable<Post[]>{
+    let u = this.api + '?'
+    for (let i = 90; i < 100; i++) {
+      u += `id=${i}&`// "id=" + i + "&"
+    }
+    return this.http.get<Post[]>(u)
+  }
+
 }

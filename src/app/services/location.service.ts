@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
 export class LocationService {
 
   constructor() { }
-
+  username
   pages = ['login','homepage','albums',
   'posts','todos','users',]
 
-  CurrentLocation:string = 'login'
+  CurrentLocation:string = 'homepage'//'login'
 
   changeLocation(newLocation:string){
     console.log('changeLocation', newLocation);

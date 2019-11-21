@@ -1,11 +1,29 @@
 <p>login works!</p>
 
+<div style="border: 1px solid brown;">
+    <label>numy</label>  <input [(ngModel)]="numy" /><br>
+
+    <label>numy:</label><span>{{numy}}</span><br>
+
+    <button (click)="incnumy()">inc numy</button><br>
+</div>
+
+
+
+
+
 
 <label>user</label>  <input [(ngModel)]="user" /><br>
-<label>pass</label>  <input [(ngModel)]="pass" /><br>
+<label [id]="numy">pass</label>  <input [(ngModel)]="pass" /><br>
 <button (click)="login()">
     login
-</button>
+</button><br>
+
 
 <label>user</label>  <input [(ngModel)]="user" /><br>
 <label>pass</label>  <input [(ngModel)]="pass" /><br>
+
+<div>
+    <label>user:</label><span>{{user}}</span><br>
+    <label>pass:</label><span>{{pass}}</span>
+</div>

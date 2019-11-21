@@ -19,4 +19,12 @@ export class PhotoService {
   getPhoto(id:number):Observable<Photo>{
     return this.http.get<Photo>(this.api + id)
   }
+
+  getLastPhotos():Observable<Photo[]>{
+    let u = this.api + '?'
+    for (let i = 4990; i < 5000; i++) {
+      u += `id=${i}&`// "id=" + i + "&"
+    }
+    return this.http.get<Photo[]>(u)
+  }
 }
