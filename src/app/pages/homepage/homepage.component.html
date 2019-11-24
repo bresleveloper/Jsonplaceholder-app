@@ -1,7 +1,7 @@
 <p>homepage works!</p>
 
-<ul class="gallery">
-    <li class="relative gallery-item w3-animate-zoom hide my-index-{{shuki}}" 
+<ul class="gallery relative">
+    <li class="absolute gallery-item w3-animate-zoom  my-index-{{shuki}}" 
         *ngFor="let pic of lastphotos; index as shuki">
         <div class="absolute gallery-text"> 
             {{pic.id}} - {{pic.title}} 

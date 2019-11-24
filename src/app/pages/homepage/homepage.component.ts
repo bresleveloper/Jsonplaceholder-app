@@ -31,9 +31,15 @@ export class HomepageComponent implements OnInit {
   }
 
   showNextGalleryItem(){
+    let lastoldlast = document.querySelector('.gallery-item.hide')
+    if (lastoldlast) {
+      lastoldlast.className = lastoldlast.className.replace(' hide', '')
+    }
+
     let eLast = document.querySelector(
       `.my-index-${this.indexShowGalleryItem}`) as HTMLElement;
     //eLast.style.display = '';
+    //eLast.className = eLast.className.replace(' show', ' hide')
     eLast.className = eLast.className.replace(' show', ' hide')
 
     if (this.indexShowGalleryItem == this.lastphotos.length-1) {
@@ -43,8 +49,8 @@ export class HomepageComponent implements OnInit {
     let eNext = document.querySelector(
       `.my-index-${++this.indexShowGalleryItem}`) as HTMLElement;
     //eNext.style.display = 'block'
-    //eNext.className += ' show' 
-    eNext.className = eNext.className.replace(' hide', ' show')
+    eNext.className += ' show' 
+    //eNext.className = eNext.className.replace(' hide', ' show')
 
   }
 
