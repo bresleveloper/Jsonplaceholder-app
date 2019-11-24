@@ -3,6 +3,8 @@ import { PostService } from 'src/app/services/post.service';
 import { PhotoService } from 'src/app/services/photo.service';
 import { Post } from 'src/app/model/post';
 import { Photo } from 'src/app/model/photo';
+import { CommentService } from 'src/app/services/comment.service';
+import { PostComment } from 'src/app/model/comment'
 
 @Component({
   selector: 'app-homepage',
@@ -10,14 +12,33 @@ import { Photo } from 'src/app/model/photo';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  constructor(public posts:PostService, public photos:PhotoService) { }
+  constructor(public posts:PostService, 
+    public photos:PhotoService,
+    public comments:CommentService) { }
 
   lastposts:Post[]
   lastphotos:Photo[]
   indexShowGalleryItem:number
 
   ngOnInit() {
-    this.posts.getLastPosts().subscribe(x=>this.lastposts = x)
+    this.posts.getLastPosts()
+      .subscribe(x=> {
+        this.lastposts = x
+        let postsIds:number[] = x.map(postitem => postitem.id)
+
+        this.comments.getCommentForPosts(postsIds)
+          .subscribe(allComments =>{
+            
+            this.lastposts.forEach(post=>
+              post.comments = 
+                allComments.filter(comm => 
+                  comm.postId == post.id)
+            )
+          
+          })
+      })
+    
+    
     this.photos.getLastPhotos()
       .subscribe(x=> {
         this.lastphotos = x

@@ -15,5 +15,12 @@
 <ul>
     <li *ngFor="let bang of lastposts">
         {{bang.id}} - {{bang.title}}
+        <ul>
+            <li *ngFor="let c of bang.comments">
+                <div>{{c.name}}</div>
+                <div>{{c.email}}</div>
+                <div>{{c.body}}</div>
+            </li>
+        </ul>
     </li>
 </ul>
