@@ -26,6 +26,7 @@ export class NglifehookComponent implements
                 AfterViewChecked,
                 OnDestroy {
            
+  title:string 
   showSomething:boolean 
   thing:object = { name : 'no name yet' }                  
 
