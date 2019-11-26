@@ -1,4 +1,6 @@
-import { Component, OnInit, AfterViewChecked , AfterContentChecked} from '@angular/core';
+import { Component, OnInit, OnDestroy,
+  AfterViewChecked , 
+  AfterContentChecked} from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { PhotoService } from 'src/app/services/photo.service';
 import { Post } from 'src/app/model/post';
@@ -11,7 +13,8 @@ import { PostComment } from 'src/app/model/comment'
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit, OnDestroy {
+
   constructor(public posts:PostService, 
     public photos:PhotoService,
     public comments:CommentService) { }
@@ -19,6 +22,7 @@ export class HomepageComponent implements OnInit {
   lastposts:Post[]
   lastphotos:Photo[]
   indexShowGalleryItem:number
+  private intervalNumber:number
 
   ngOnInit() {
     this.posts.getLastPosts()
@@ -41,17 +45,32 @@ export class HomepageComponent implements OnInit {
     
     this.photos.getLastPhotos()
       .subscribe(x=> {
+        console.log('this.photos.getLastPhotos().subscribe');
+        console.log('my data is', x);
         this.lastphotos = x
         this.indexShowGalleryItem = x.length -1
         console.log('photos here');
         
         //this.showNextGalleryItem()
         setTimeout(()=>{ this.showNextGalleryItem() })
-        setInterval(()=>{ this.showNextGalleryItem() }, 1600)
+        
+        this.intervalNumber = window.setInterval(()=>{ 
+          console.log('set intervat now calling showNextGalleryItem');
+          this.showNextGalleryItem() 
+        }, 1600)
+
+        console.log('set intervat intervelNumber ', this.intervalNumber);
       })
   }
 
+  ngOnDestroy(): void {
+    console.log('HomepageComponent.ngOnDestroy clearing interval');
+    clearInterval(this.intervalNumber) 
+  }
+
   showNextGalleryItem(){
+    console.log('showNextGalleryItem');
+
     let lastoldlast = document.querySelector('.gallery-item.hide')
     if (lastoldlast) {
       lastoldlast.className = lastoldlast.className.replace(' hide', '')

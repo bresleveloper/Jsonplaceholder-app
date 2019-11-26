@@ -31,5 +31,11 @@
             Todos
         </a>
     </li>
+    <li>
+        <a  (click)="locationSvc.changeLocation('angular\'s life')" 
+            [ngClass]="locationSvc.CurrentLocation == 'angular\'s life' ? 'active' : ''">
+            Angular's life
+        </a>
+    </li>
     <li>hello! mr . {{locationSvc.username}}</li>
   </ul>

@@ -19,6 +19,9 @@ import { AlbumComponent } from './comps/items/album/album.component';
 import { PhotoComponent } from './comps/items/photo/photo.component';
 import { NaviComponent } from './comps/navi/navi.component';
 import { FilterComponent } from './comps/filter/filter.component';
+import { NglifehookComponent } from './pages/nglifehook/nglifehook.component';
+import { HookSonComponent } from './comps/hook-son/hook-son.component';
+import { HookGrandsonComponent } from './comps/hook-grandson/hook-grandson.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { FilterComponent } from './comps/filter/filter.component';
     AlbumComponent,
     PhotoComponent,
     NaviComponent,
-    FilterComponent
+    FilterComponent,
+    NglifehookComponent,
+    HookSonComponent,
+    HookGrandsonComponent
   ],
   imports: [
     BrowserModule, 

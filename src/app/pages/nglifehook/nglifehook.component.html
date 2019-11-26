@@ -1,0 +1,20 @@
+<p>nglifehook works!</p>
+
+
+<div>
+    <label>title value: </label>
+    <input [(ngModel)]="title">
+</div>
+<div>
+    <label>set thing name: </label>
+    <input #thingName>
+    <button (click)="setThingName(thingName.value)">
+        save name with obj assign
+    </button>
+</div>
+      
+<app-hook-son 
+    [title]="title" 
+    [thing]="thing"
+    ></app-hook-son>
+<!---->
